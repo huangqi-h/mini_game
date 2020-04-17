@@ -37,21 +37,21 @@ class Main extends egret.DisplayObjectContainer {
     }
 
     private onAddToStage(event: egret.Event) {
-
+    
         egret.lifecycle.addLifecycleListener((context) => {
             // custom lifecycle plugin
-
+            // 在每一帧进行判断
             context.onUpdate = () => {
 
             }
         })
-
+        // app进入后台
         egret.lifecycle.onPause = () => {
-            egret.ticker.pause();
+            egret.ticker.pause(); // 关闭渲染与心跳
         }
-
+        // app进入前台
         egret.lifecycle.onResume = () => {
-            egret.ticker.resume();
+            egret.ticker.resume(); // 打开渲染与心跳
         }
 
         this.runGame().catch(e => {
@@ -78,7 +78,7 @@ class Main extends egret.DisplayObjectContainer {
             const loadingView = new LoadingUI();
             this.stage.addChild(loadingView);
             await RES.loadConfig("resource/default.res.json", "resource/");
-            await RES.loadGroup("preload", 0, loadingView);
+            await RES.loadGroup("preload", 0, loadingView); // 加载资源组
             this.stage.removeChild(loadingView);
         }
         catch (e) {
@@ -93,24 +93,31 @@ class Main extends egret.DisplayObjectContainer {
      * Create a game scene
      */
     private createGameScene() {
-        let sky = this.createBitmapByName("bg_jpg");
-        this.addChild(sky);
+        // 加载背景图片
+        let treeBg = this.createBitmapByName("tree_bg");
+        this.addChild(treeBg);
         let stageW = this.stage.stageWidth;
         let stageH = this.stage.stageHeight;
-        sky.width = stageW;
-        sky.height = stageH;
+        treeBg.width = stageW;
+        treeBg.height = (596 / 750) * stageW;
+        treeBg.zIndex = -50;
+        treeBg.x = 0;
+        treeBg.y = stageH - (596 / 750) * stageW;
 
-        let topMask = new egret.Shape();
-        topMask.graphics.beginFill(0x000000, 0.5);
-        topMask.graphics.drawRect(0, 0, stageW, 172);
-        topMask.graphics.endFill();
-        topMask.y = 33;
-        this.addChild(topMask);
-
-        let icon = this.createBitmapByName("egret_icon_png");
-        this.addChild(icon);
-        icon.x = 26;
-        icon.y = 33;
+        let treeFg = this.createBitmapByName("tree_fg");
+        this.addChild(treeFg);
+        treeFg.width = stageW;
+        treeFg.height = (172 / 750) * stageW;
+        treeFg.zIndex = -40;
+        treeFg.x = 0;
+        treeFg.y = stageH - (172 / 750) * stageW;
+        // 绘制背景
+        let bg:egret.Shape = new egret.Shape();
+        bg.graphics.beginFill(0x336699, 0.5);
+        bg.graphics.drawRect(0, 0, stageW, stageH);
+        bg.graphics.endFill();
+        bg.y = 33;
+        this.addChild(bg);
 
         let line = new egret.Shape();
         line.graphics.lineStyle(2, 0xffffff);
@@ -126,7 +133,7 @@ class Main extends egret.DisplayObjectContainer {
         colorLabel.textColor = 0xffffff;
         colorLabel.width = stageW - 172;
         colorLabel.textAlign = "center";
-        colorLabel.text = "Hello Egret";
+        colorLabel.text = "Hello World";
         colorLabel.size = 24;
         colorLabel.x = 172;
         colorLabel.y = 80;
@@ -162,7 +169,7 @@ class Main extends egret.DisplayObjectContainer {
      * Description file loading is successful, start to play the animation
      */
     private startAnimation(result: string[]) {
-        let parser = new egret.HtmlTextParser();
+        let parser = new egret.HtmlTextParser(); // 将html格式文本转换为可赋值给 egret.TextField#textFlow 属性的对象
 
         let textflowArr = result.map(text => parser.parse(text));
         let textfield = this.textfield;
@@ -177,7 +184,7 @@ class Main extends egret.DisplayObjectContainer {
             // 切换描述内容
             // Switch to described content
             textfield.textFlow = textFlow;
-            let tw = egret.Tween.get(textfield);
+            let tw = egret.Tween.get(textfield); // Tween是Egret的动画缓动类, get[静态] 激活一个对象，对其添加 Tween 动画
             tw.to({ "alpha": 1 }, 200);
             tw.wait(2000);
             tw.to({ "alpha": 0 }, 200);

@@ -1,19 +1,24 @@
 {
 	"groups":[
 	{
-		"keys":"bg_jpg,egret_icon_png,description_json",
+		"keys":"tree_bg,tree_fg,sound_on,description_json",
 		"name":"preload"
 	}],
 	"resources":[
 	{
-		"name":"bg_jpg",
+		"name":"tree_bg",
 		"type":"image",
-		"url":"assets/bg.jpg"
+		"url":"imgs/treeBg.png"
 	},
 	{
-		"name":"egret_icon_png",
+		"name":"tree_fg",
 		"type":"image",
-		"url":"assets/egret_icon.png"
+		"url":"imgs/treeFg.png"
+	},
+	{
+		"name":"sound_on",
+		"type":"image",
+		"url":"imgs/soundOn.png"
 	},
 	{
 		"name":"description_json",

@@ -1,28 +1,115 @@
 {
-	"groups":[
-	{
-		"keys":"tree_bg,tree_fg,sound_on,description_json",
-		"name":"preload"
-	}],
-	"resources":[
-	{
-		"name":"tree_bg",
-		"type":"image",
-		"url":"imgs/treeBg.png"
-	},
-	{
-		"name":"tree_fg",
-		"type":"image",
-		"url":"imgs/treeFg.png"
-	},
-	{
-		"name":"sound_on",
-		"type":"image",
-		"url":"imgs/soundOn.png"
-	},
-	{
-		"name":"description_json",
-		"type":"json",
-		"url":"config/description.json"
-	}]
+	"groups": [
+		{
+			"keys": "bg_jpg,egret_icon_png,description_json,againBtn_png,bottomBuilding_png,cloud1_png,cloud2_png,cloud3_png,Common_png,customDialog_png,f1_png,f2_png,f3_png,soundOff_png,soundOn_png,treeBg_png,treeFg_png,down_mp3,bgm_mp3,touch_mp3,over_mp3",
+			"name": "preload"
+		}
+	],
+	"resources": [
+		{
+			"name": "bg_jpg",
+			"type": "image",
+			"url": "assets/bg.jpg"
+		},
+		{
+			"name": "egret_icon_png",
+			"type": "image",
+			"url": "assets/egret_icon.png"
+		},
+		{
+			"name": "description_json",
+			"type": "json",
+			"url": "config/description.json"
+		},
+		{
+			"name": "againBtn_png",
+			"type": "image",
+			"url": "assets/againBtn.png"
+		},
+		{
+			"name": "bottomBuilding_png",
+			"type": "image",
+			"url": "assets/bottomBuilding.png"
+		},
+		{
+			"name": "cloud1_png",
+			"type": "image",
+			"url": "assets/cloud1.png"
+		},
+		{
+			"name": "cloud2_png",
+			"type": "image",
+			"url": "assets/cloud2.png"
+		},
+		{
+			"name": "cloud3_png",
+			"type": "image",
+			"url": "assets/cloud3.png"
+		},
+		{
+			"name": "Common_png",
+			"type": "image",
+			"url": "assets/Common.png"
+		},
+		{
+			"name": "customDialog_png",
+			"type": "image",
+			"url": "assets/customDialog.png"
+		},
+		{
+			"name": "f1_png",
+			"type": "image",
+			"url": "assets/f1.png"
+		},
+		{
+			"name": "f2_png",
+			"type": "image",
+			"url": "assets/f2.png"
+		},
+		{
+			"name": "f3_png",
+			"type": "image",
+			"url": "assets/f3.png"
+		},
+		{
+			"name": "soundOff_png",
+			"type": "image",
+			"url": "assets/soundOff.png"
+		},
+		{
+			"name": "soundOn_png",
+			"type": "image",
+			"url": "assets/soundOn.png"
+		},
+		{
+			"name": "treeBg_png",
+			"type": "image",
+			"url": "assets/treeBg.png"
+		},
+		{
+			"name": "treeFg_png",
+			"type": "image",
+			"url": "assets/treeFg.png"
+		},
+		{
+			"name": "down_mp3",
+			"type": "sound",
+			"url": "sounds/down.mp3"
+		},
+		{
+			"name": "bgm_mp3",
+			"type": "sound",
+			"url": "sounds/bgm.mp3"
+		},
+		{
+			"name": "touch_mp3",
+			"type": "sound",
+			"url": "sounds/touch.mp3"
+		},
+		{
+			"name": "over_mp3",
+			"type": "sound",
+			"url": "sounds/over.mp3"
+		}
+	]
 }
